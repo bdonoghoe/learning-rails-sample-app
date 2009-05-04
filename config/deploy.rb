@@ -10,6 +10,8 @@ default_run_options[:pty] = true
 set :repository,  "git://github.com/mzslater/learning-rails-sample-app.git"
 set :scm, "git"
 set :user, "deploy"
+#set :use_sudo, false
+set :admin_runner, "deploy"
 set :branch, "master"
 set :deploy_via, :remote_cache
 

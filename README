@@ -2,6 +2,10 @@ This is the sample application for the Learning Rails free online course in Ruby
 
 See http://www.learningrails.com for more information.
 
+The code currently assumes Rails 2.0.2 and associated gems/plugins. It may work with newer versions, but is problematic with Rails 2.3.x for sure. We are working on some updates.
+
+See LICENSE for license terms (MIT).
+
 Contributions From:
 
 + Chris Schmitt (chrisjschmitt@github) - Aug 26, 2008 - Honor subpages sort by position field
