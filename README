@@ -2,7 +2,7 @@ This is the sample application for the Learning Rails free online course in Ruby
 
 See http://www.learningrails.com for more information.
 
-The code currently assumes Rails 2.0.2 and associated gems/plugins. It may work with newer versions, but is problematic with Rails 2.3.x for sure. We are working on some updates.
+This version tests and runs on Rails 2.3.2.
 
 See LICENSE for license terms (MIT).
 
