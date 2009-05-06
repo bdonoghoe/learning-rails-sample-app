@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
-class Test::Unit::TestCase
+class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded
@@ -35,4 +35,24 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_valid(validateable)
+    clean_backtrace do
+      assert validateable.valid?, "Expected to be valid"
+    end
+  end
+  
+  def assert_not_valid(validateable)
+    clean_backtrace do
+      assert_false validateable.valid?, "Expected to not be valid"
+    end
+  end
+  
+  private
+  def clean_backtrace(&block)
+    yield
+  rescue Test::Unit::AssertionFailedError => e
+    path = File.expand_path(__FILE__)
+    raise Test::Unit::AssertionFailedError, e.message, e.backtrace.reject { |line| File.expand_path(line) =~ /#{path}/ }
+  end
+  
 end
